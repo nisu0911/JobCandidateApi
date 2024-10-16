@@ -1,6 +1,4 @@
-﻿using Core.Interfaces;
-using Infrastructure.Data;
-using Infrastructure.Repositories;
+﻿using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,8 +18,6 @@ namespace Infrastructure
 
             services.AddDbContext<JobCandidateDbContext>(options =>
                 options.UseSqlServer(connectionString));
-
-            services.AddScoped<ICandidateRepository, CandidateRepository>();
 
             return services;
         }

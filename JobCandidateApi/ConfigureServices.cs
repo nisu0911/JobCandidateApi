@@ -4,9 +4,9 @@ namespace JobCandidateApi
 {
     public static class ConfigureServices
     {
-        public static IServiceCollection AddApiServices(this IServiceCollection services)
+        public static IServiceCollection AddApiServices(this IServiceCollection services, IConfiguration config)
         {
-            services.AddInfrastructureServices();
+            services.AddInfrastructureServices(config);
             return services;
         }
     }

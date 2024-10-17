@@ -16,17 +16,17 @@ namespace Infrastructure.Repositories
 
         public async Task<bool> UpsertAsync(Candidate candidate, CancellationToken cancellationToken)
         {
-            var existingUser = await _context.Candidates.FindAsync(candidate.Email);
+            var existingUser = await _context.Candidates.FindAsync(candidate.Email, cancellationToken);
             if (existingUser != null)
             {
                 _context.Entry(existingUser).CurrentValues.SetValues(candidate);
             }
             else
             {
-                await _context.Candidates.AddAsync(candidate);
+                await _context.Candidates.AddAsync(candidate, cancellationToken);
             }
 
-            return await _context.SaveChangesAsync() > 0;
+            return await _context.SaveChangesAsync(cancellationToken) > 0;
         }
     }
 }

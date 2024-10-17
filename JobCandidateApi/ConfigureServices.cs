@@ -1,4 +1,5 @@
-﻿using Infrastructure;
+﻿using Application;
+using Infrastructure;
 
 namespace JobCandidateApi
 {
@@ -7,6 +8,7 @@ namespace JobCandidateApi
         public static IServiceCollection AddApiServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddInfrastructureServices(config);
+            services.AddApplicationServices();
             return services;
         }
     }

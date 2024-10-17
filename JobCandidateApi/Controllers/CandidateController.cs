@@ -15,7 +15,7 @@ namespace JobCandidateApi.Controllers
             _candidateService = candidateService;
         }
 
-        [HttpPost("upsert")]
+        [HttpPut]
         public async Task<IActionResult> UpsertAsync(Candidate candidate, CancellationToken cancellationToken)
         {
             var result = await _candidateService.UpsertAsync(candidate, cancellationToken);
